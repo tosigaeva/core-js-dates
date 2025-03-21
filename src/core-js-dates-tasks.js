@@ -50,16 +50,8 @@ function getTime(date) {
  * '2024-01-30T00:00:00.000Z' => 'Tuesday'
  */
 function getDayName(date) {
-  const weekDays = [
-    'Sunday',
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Friday',
-    'Saturday',
-  ];
-  return weekDays[new Date(date).getDay()];
+  const options = { weekday: 'long' };
+  return new Date(date).toLocaleDateString('en-US', options);
 }
 
 /**
