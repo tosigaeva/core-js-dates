@@ -34,8 +34,8 @@ dateToTimestamp('01 Jan 1970 00:00:00 UTC');
 function getTime(date) {
   const hours = date.getHours().toString().padStart(2, '0');
   const minutes = date.getMinutes().toString().padStart(2, '0');
-  const secondes = date.getSeconds().toString().padStart(2, '0');
-  return `${hours}:${minutes}:${secondes}`;
+  const seconds = date.getSeconds().toString().padStart(2, '0');
+  return `${hours}:${minutes}:${seconds}`;
 }
 
 /**
@@ -103,8 +103,7 @@ function getCountDaysOnPeriod(dateStart, dateEnd) {
   const end = new Date(dateEnd);
 
   const diffTime = end - start;
-  const diffDays = diffTime / (1000 * 60 * 60 * 24) + 1;
-  return diffDays;
+  return diffTime / (1000 * 60 * 60 * 24) + 1;
 }
 
 /**
@@ -211,7 +210,7 @@ function getNextFridayThe13th(date) {
   let year = date.getFullYear();
   let month = date.getMonth();
 
-  while (true) {
+  while (month < 12) {
     const the13th = new Date(year, month, 13);
     if (the13th.getDay() === 5) {
       return the13th;
@@ -222,6 +221,7 @@ function getNextFridayThe13th(date) {
       year += 1;
     }
   }
+  return null;
 }
 
 /**
